@@ -8,16 +8,6 @@ RUN wget -O /usr/local/bin/dep https://github.com/golang/dep/releases/download/v
 
 RUN go get github.com/kgretzky/evilginx2
 
-WORKDIR /go/src/github.com/kgretzky/evilginx2
-
-COPY Gopkg.toml Gopkg.lock ./
-
-RUN dep ensure -vendor-only
-
-COPY . /go/src/github.com/kgretzky/evilginx2
-
-RUN go build -o ./bin/evilginx main.go
-
 FROM alpine:3.8
 
 RUN apk add --update \
@@ -26,7 +16,7 @@ RUN apk add --update \
 
 WORKDIR /app
 
-COPY --from=build /go/src/github.com/kgretzky/evilginx2/bin/evilginx /app/evilginx
+COPY --from=build /go/bin/evilginx /app/evilginx
 COPY ./phishlets/*.yaml /app/phishlets/
 
 VOLUME ["/app/phishlets/"]
