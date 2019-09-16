@@ -6,6 +6,8 @@ RUN apk add --update \
 
 RUN wget -O /usr/local/bin/dep https://github.com/golang/dep/releases/download/v0.5.4/dep-linux-amd64 && chmod +x /usr/local/bin/dep
 
+RUN go get github.com/kgretzky/evilginx2
+
 WORKDIR /go/src/github.com/kgretzky/evilginx2
 
 COPY Gopkg.toml Gopkg.lock ./
