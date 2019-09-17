@@ -17,7 +17,7 @@ RUN apk add --update \
 WORKDIR /app
 
 COPY --from=build /go/bin/evilginx2 /app/evilginx2
-COPY ./phishlets/*.yaml /app/phishlets/
+COPY /go/src/github.com/kgretzky/evilginx2/phishlets/*.yaml /app/phishlets/
 
 VOLUME ["/app/phishlets/"]
 
