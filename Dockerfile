@@ -16,11 +16,11 @@ RUN apk add --update \
 
 WORKDIR /app
 
-COPY --from=build /go/bin/evilginx /app/evilginx
+COPY --from=build /go/bin/evilginx2 /app/evilginx2
 COPY ./phishlets/*.yaml /app/phishlets/
 
 VOLUME ["/app/phishlets/"]
 
 EXPOSE 443 80 53/udp
 
-ENTRYPOINT ["/app/evilginx"]
+ENTRYPOINT ["/app/evilginx2"]
