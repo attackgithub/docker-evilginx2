@@ -8,7 +8,7 @@ RUN wget -O /usr/local/bin/dep https://github.com/golang/dep/releases/download/v
 
 RUN go get github.com/kgretzky/evilginx2
 
-FROM alpine:3.8
+FROM ubuntu:bionic
 
 RUN apk add --update \
     ca-certificates \
@@ -21,4 +21,4 @@ COPY --from=build /go/src/github.com/kgretzky/evilginx2/phishlets/*.yaml /app/ph
 
 VOLUME ["/app/phishlets/"]
 
-ENTRYPOINT ["/bin/sh"]
+ENTRYPOINT ["/bin/bash"]
