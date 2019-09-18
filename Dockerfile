@@ -21,6 +21,4 @@ COPY --from=build /go/src/github.com/kgretzky/evilginx2/phishlets/*.yaml /app/ph
 
 VOLUME ["/app/phishlets/"]
 
-EXPOSE 443 80 53/udp
-
 ENTRYPOINT ["/app/evilginx2"]
