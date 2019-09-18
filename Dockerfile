@@ -21,6 +21,4 @@ COPY --from=build /go/src/github.com/kgretzky/evilginx2/phishlets/*.yaml /app/ph
 
 VOLUME ["/app/phishlets/"]
 
-RUN ["/app/evilginx2"]
-
-CMD [ "tail", "-F", "-n0", "/etc/hosts"  ]
+ENTRYPOINT ["/bin/bash"]
