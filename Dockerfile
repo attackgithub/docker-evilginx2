@@ -4,14 +4,14 @@ RUN apk add --update \
     git \
   && rm -rf /var/cache/apk/*
 
-RUN wget -O /usr/local/bin/dep https://github.com/golang/dep/releases/download/v0.5.4/dep-linux-amd64 && chmod +x /usr/local/bin/dep
-
 RUN go get github.com/kgretzky/evilginx2
 
 FROM ubuntu:bionic
 
 RUN apt-get update && apt-get install -y \
-    ca-certificates
+    ca-certificates \
+    libterm-readline-gnu-perl \
+    musl-dev
 
 WORKDIR /app
 
