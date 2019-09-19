@@ -10,7 +10,7 @@ RUN go get github.com/kgretzky/evilginx2
 
 FROM ubuntu:bionic
 
-RUN apt-get update && apt-get install \
+RUN apt-get update && apt-get install -y \
     ca-certificates
 
 WORKDIR /app
