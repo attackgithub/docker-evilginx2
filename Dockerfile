@@ -10,9 +10,8 @@ RUN go get github.com/kgretzky/evilginx2
 
 FROM ubuntu:bionic
 
-RUN apk add --update \
-    ca-certificates \
-  && rm -rf /var/cache/apk/*
+RUN apt-get update && apt-get install \
+    ca-certificates
 
 WORKDIR /app
 
