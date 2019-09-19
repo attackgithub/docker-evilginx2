@@ -20,4 +20,4 @@ COPY --from=build /go/src/github.com/kgretzky/evilginx2/phishlets/*.yaml /app/ph
 
 VOLUME ["/app/phishlets/"]
 
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/app/evilginx2"]
